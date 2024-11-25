@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "46cda3f5-7238-4891-9d05-4609ec57d1fc",
+		"name": "BlockDash",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25162167"
+	},
+	"item": [
+		{
+			"name": "get_communities",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/community?limit=2&scope=Transaction",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"community"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "scope",
+							"value": "Transaction"
+						},
+						{
+							"key": "scope",
+							"value": "Ownership",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

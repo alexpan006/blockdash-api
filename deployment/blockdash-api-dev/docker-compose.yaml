@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  api-dev:
+    container_name: api-dev
+    image: ghcr.io/uni-mannheim-blockchain-dashboard/blockdash-api:main
+    tty: true
+    stdin_open: true
+    pull_policy: always
+    restart: unless-stopped
+    ports:
+      - 4001:80
+    environment:
+      - DB_URL=neo4j://134.155.111.219:7687
+      - DB_USR=neo4j
+      - DB_PWD=demo1234
+      - REDIS_URL=redis://redis-dev
+      - OPENSEA_API_KEY=d1be49dbe23944618e3471f23ead6673
+      - ETHERSCAN_API="7MYBZECIG6P3FEVMNMNWTT1PB9U6N739DN"
+
+  redis:
+    image: 'bitnami/redis:latest'
+    container_name: redis-dev
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: ghcr.io/joeferner/redis-commander:latest
+    restart: always
+    environment:
+    - REDIS_HOSTS=local:redis:6379
+    ports:
+    - 9003:8081

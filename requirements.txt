@@ -1,0 +1,10 @@
+fastapi
+fastapi[standard]
+uvicorn[standard]
+neo4j
+requests
+web3
+apscheduler
+fastapi-cache2[redis]
+numpy
+redis
